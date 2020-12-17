@@ -3,15 +3,15 @@
         <div class="page-bar">
             <div class="page-title-breadcrumb">
                 <div class=" pull-left">
-                    <div class="page-title">Doctor List</div>
+                    <div class="page-title">USER LIST</div>
                 </div>
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
                             href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
                     </li>
-                    <li><a class="parent-item" href="#">Doctors</a>&nbsp;<i class="fa fa-angle-right"></i>
+                    <li><a class="parent-item" href="#">Users</a>&nbsp;<i class="fa fa-angle-right"></i>
                     </li>
-                    <li class="active">Doctor List</li>
+                    <li class="active">User List</li>
                 </ol>
             </div>
         </div>
@@ -52,7 +52,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                                     <div class="btn-group">
-                                                        <a href="add_doctor_material.html" id="addRow"
+                                                        <a routerLink="/adduser"  id="addRow"
                                                             class="btn btn-info">
                                                             Add New <i class="fa fa-plus"></i>
                                                         </a>
@@ -89,345 +89,40 @@
                                                     id="example4">
                                                     <thead>
                                                         <tr>
-                                                            <th></th>
-                                                            <th> Name </th>
-                                                            <th> Department </th>
-                                                            <th> Specialization </th>
-                                                            <th> Degree </th>
+                                                            <th> Nom </th>
+                                                            <th> Prenom </th>
+                                                            <th> Cin </th>
                                                             <th> Mobile </th>
                                                             <th> Email </th>
-                                                            <th>Joining Date</th>
+                                                            <th>City</th>
+                                                            <th>Password</th>
+                                                            <th>Role</th>
                                                             <th> Action </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc1.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Rajesh</td>
-                                                            <td class="left">General surgery</td>
-                                                            <td class="left">18</td>
-                                                            <td class="left">MBBS,MD</td>
-                                                            <td><a href="tel:4444565756">
-                                                                    4444565756 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    rajesh@gmail.com </a></td>
-                                                            <td class="left">22 Feb 2000</td>
+                                                        <tr *ngFor="let user of users" class="odd gradeX">
+                                                            <td>{{user.nom}}</td>
+                                                            <td class="left">{{user.prenom}}</td>
+                                                            <td class="left">{{user.cin}}</td>
+                                                            <td class="left">{{user.mobile}}</td>
+                                                            <td>{{user.email}}</td>
+                                                            <td>{{user.city}}</td>
+                                                            <td class="left">{{user.password}}</td>
+                                                            <td>{{user.role}}</td>
                                                             <td>
-                                                                <a href="edit_doctor.html"
+                                                                <a   [routerLink]="['/adduser', user._id]"
                                                                     class="btn btn-primary btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
-                                                                <button class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc10.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Pooja Patel</td>
-                                                            <td class="left">Cardiology</td>
-                                                            <td class="left">5</td>
-                                                            <td class="left">M.D.</td>
-                                                            <td><a href="tel:444786876">
-                                                                    444786876 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    pooja@gmail.com </a></td>
-                                                            <td class="left">27 Aug 2005</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
+                                                                <a   [routerLink]="['/alluser', user._id]"
                                                                     class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <button class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc2.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Sarah Smith</td>
-                                                            <td class="left">Anaesthetics</td>
-                                                            <td class="left">15</td>
-                                                            <td class="left">MBBS,DGO,MD</td>
-                                                            <td><a href="tel:44455546456">
-                                                                    44455546456 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    sarah@gmail.com </a></td>
-                                                            <td class="left">05 Jun 2011</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <button class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc3.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.John Deo</td>
-                                                            <td class="left">Dentist</td>
-                                                            <td class="left">23</td>
-                                                            <td class="left">BDS,MDS</td>
-                                                            <td><a href="tel:444543564">
-                                                                    444543564 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    john@gmail.com </a></td>
-                                                            <td class="left">15 Feb 2012</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <button class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc4.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Jay Soni</td>
-                                                            <td class="left">General</td>
-                                                            <td class="left">10</td>
-                                                            <td class="left">BHMS</td>
-                                                            <td><a href="tel:444543564">
-                                                                    444543564 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    kenh@gmail.com </a></td>
-                                                            <td class="left">12 Nov 2012</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <button class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc5.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Jacob Ryan</td>
-                                                            <td class="left">Urology</td>
-                                                            <td class="left">14</td>
-                                                            <td class="left">MBBS,MS</td>
-                                                            <td><a href="tel:444543564">
-                                                                    444543564 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    johnson@gmail.com </a></td>
-                                                            <td class="left">03 Dec 2001</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <button class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc6.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Megha Trivedi</td>
-                                                            <td class="left">Gynaecology</td>
-                                                            <td class="left">7</td>
-                                                            <td class="left">MBBS,MS</td>
-                                                            <td><a href="tel:444543564">
-                                                                    444543564 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    megha@gmail.com </a></td>
-                                                            <td class="left">17 Mar 2013</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <button class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc1.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Rajesh</td>
-                                                            <td class="left">General surgery</td>
-                                                            <td class="left">18</td>
-                                                            <td class="left">MBBS,MD</td>
-                                                            <td><a href="tel:4444565756">
-                                                                    4444565756 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    rajesh@gmail.com </a></td>
-                                                            <td class="left">22 Feb 2000</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <button class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc10.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Pooja Patel</td>
-                                                            <td class="left">Cardiology</td>
-                                                            <td class="left">5</td>
-                                                            <td class="left">M.D.</td>
-                                                            <td><a href="tel:444786876">
-                                                                    444786876 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    pooja@gmail.com </a></td>
-                                                            <td class="left">27 Aug 2005</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <a href="javasctipt().html"
-                                                                    class="btn btn-danger btn-xs">
                                                                     <i class="fa fa-trash-o "></i>
                                                                 </a>
+                                                                
                                                             </td>
                                                         </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc2.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Sarah Smith</td>
-                                                            <td class="left">Anaesthetics</td>
-                                                            <td class="left">15</td>
-                                                            <td class="left">MBBS,DGO,MD</td>
-                                                            <td><a href="tel:44455546456">
-                                                                    44455546456 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    sarah@gmail.com </a></td>
-                                                            <td class="left">05 Jun 2011</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <a href="javasctipt().html"
-                                                                    class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc3.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.John Deo</td>
-                                                            <td class="left">Dentist</td>
-                                                            <td class="left">23</td>
-                                                            <td class="left">BDS,MDS</td>
-                                                            <td><a href="tel:444543564">
-                                                                    444543564 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    john@gmail.com </a></td>
-                                                            <td class="left">15 Feb 2012</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <a href="javasctipt().html"
-                                                                    class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc4.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Jay Soni</td>
-                                                            <td class="left">General</td>
-                                                            <td class="left">10</td>
-                                                            <td class="left">BHMS</td>
-                                                            <td><a href="tel:444543564">
-                                                                    444543564 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    kenh@gmail.com </a></td>
-                                                            <td class="left">12 Nov 2012</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <a href="javasctipt().html"
-                                                                    class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc5.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Jacob Ryan</td>
-                                                            <td class="left">Urology</td>
-                                                            <td class="left">14</td>
-                                                            <td class="left">MBBS,MS</td>
-                                                            <td><a href="tel:444543564">
-                                                                    444543564 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    johnson@gmail.com </a></td>
-                                                            <td class="left">03 Dec 2001</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <a href="javasctipt().html"
-                                                                    class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="odd gradeX">
-                                                            <td class="patient-img">
-                                                                <img src="img/doc/doc6.jpg" alt="">
-                                                            </td>
-                                                            <td>Dr.Megha Trivedi</td>
-                                                            <td class="left">Gynaecology</td>
-                                                            <td class="left">7</td>
-                                                            <td class="left">MBBS,MS</td>
-                                                            <td><a href="tel:444543564">
-                                                                    444543564 </a></td>
-                                                            <td><a href="mailto:shuxer@gmail.com">
-                                                                    megha@gmail.com </a></td>
-                                                            <td class="left">17 Mar 2013</td>
-                                                            <td>
-                                                                <a href="edit_doctor.html"
-                                                                    class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <a class="btn btn-danger btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -438,287 +133,23 @@
                         </div>
                         <div class="tab-pane" id="tab2">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div *ngFor="let user of users"  class="col-md-4">
                                     <div class="card card-topline-aqua">
                                         <div class="card-body no-padding ">
                                             <div class="doctor-profile">
-                                                <img src="img/doc/doc10.jpg" class="doctor-pic" alt="">
                                                 <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Pooja Patel </div>
-                                                    <div class="name-center"> Cardiology </div>
+                                                    <div class="doctor-name">{{user.nom}} </div>
+                                                    <div class="name-center"> {{user.prenom}} </div>
                                                 </div>
-                                                <p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
+                                                <p>{{user.city}}</p>
                                                 <div>
                                                     <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
+                                                            href="tel:(123)456-7890">{{user.mobile}}</a></p>
                                                 </div>
                                                 <div class="profile-userbuttons">
                                                     <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc1.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Rajesh </div>
-                                                    <div class="name-center"> General surgery </div>
-                                                </div>
-                                                <p>45, Krishna Tower, Near Bus Stop, Satellite, <br />Mumbai
-                                                </p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc2.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Sarah Smith </div>
-                                                    <div class="name-center"> Anaesthetics </div>
-                                                </div>
-                                                <p>456, Estern evenue, Courtage area, <br />New York</p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc3.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.John Deo </div>
-                                                    <div class="name-center"> Dentist </div>
-                                                </div>
-                                                <p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc4.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Jay Soni </div>
-                                                    <div class="name-center"> General Physician </div>
-                                                </div>
-                                                <p>45, Krishna Tower, Near Bus Stop, Satellite, <br />Mumbai
-                                                </p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc5.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Jacob Ryan </div>
-                                                    <div class="name-center"> Urology </div>
-                                                </div>
-                                                <p>456, Estern evenue, Courtage area, <br />New York</p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc6.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Megha Trivedi </div>
-                                                    <div class="name-center"> Gynaecology </div>
-                                                </div>
-                                                <p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc1.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Rajesh </div>
-                                                    <div class="name-center"> General surgery </div>
-                                                </div>
-                                                <p>45, Krishna Tower, Near Bus Stop, Satellite, <br />Mumbai
-                                                </p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc2.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Sarah Smith </div>
-                                                    <div class="name-center"> Anaesthetics </div>
-                                                </div>
-                                                <p>456, Estern evenue, Courtage area, <br />New York</p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc10.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Pooja Patel </div>
-                                                    <div class="name-center"> Cardiology </div>
-                                                </div>
-                                                <p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc1.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.Rajesh </div>
-                                                    <div class="name-center"> General surgery </div>
-                                                </div>
-                                                <p>45, Krishna Tower, Near Bus Stop, Satellite, <br />Mumbai
-                                                </p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-topline-aqua">
-                                        <div class="card-body no-padding ">
-                                            <div class="doctor-profile">
-                                                <img src="img/doc/doc3.jpg" class="doctor-pic" alt="">
-                                                <div class="profile-usertitle">
-                                                    <div class="doctor-name">Dr.John Deo </div>
-                                                    <div class="name-center"> Dentist </div>
-                                                </div>
-                                                <p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-                                                <div>
-                                                    <p><i class="fa fa-phone"></i><a
-                                                            href="tel:(123)456-7890"> (123)456-7890</a></p>
-                                                </div>
-                                                <div class="profile-userbuttons">
-                                                    <a href="doctor_profile.html"
-                                                        class="btn btn-circle deepPink-bgcolor btn-sm">Read
-                                                        More</a>
+                                                        class="btn btn-circle deepPink-bgcolor btn-sm">
+                                                        edit</a>
                                                 </div>
                                             </div>
                                         </div>

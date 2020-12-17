@@ -37,24 +37,25 @@
                         </ul>
                     </div>
                     <div class="card-body" id="bar-parent">
-                        <form action="#" id="form_sample_1" class="form-horizontal">
+                
+                        <form [formGroup]="user" (ngSubmit)="onSubmitForm()" class="form-horizontal">
                             <div class="form-body">
                                 <div class="form-group row">
-                                    <label class="control-label col-md-3">First Name
+                                    <label class="control-label col-md-3">Nom
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-5">
-                                        <input type="text" name="firstname" data-required="1"
+                                        <input type="text" formControlName="nom" id="nom" data-required="1"
                                             placeholder="enter first name"
                                             class="form-control input-height" />
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="control-label col-md-3">Last Name
+                                    <label class="control-label col-md-3">Prenom
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-5">
-                                        <input type="text" name="lastname" data-required="1"
+                                        <input type="text"  formControlName="prenom" id="prenom" data-required="1"
                                             placeholder="enter last name"
                                             class="form-control input-height" />
                                     </div>
@@ -68,7 +69,7 @@
                                                 <i class="fa fa-envelope"></i>
                                             </span>
                                             <input type="text" class="form-control input-height"
-                                                name="email" placeholder="Email Address"> </div>
+                                            formControlName="email" id="email" placeholder="Email Address"> </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -76,7 +77,7 @@
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-5">
-                                        <input type="password" name="pswd" data-required="1"
+                                        <input type="password"  formControlName="password" id="password" data-required="1"
                                             placeholder="enter Password"
                                             class="form-control input-height" />
                                     </div>
@@ -92,85 +93,47 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="control-label col-md-3">Designation
+                                    <label class="control-label col-md-3">Cin
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-5">
-                                        <input type="text" name="designation" data-required="1"
+                                        <input type="text"  formControlName="cin" id="cin" data-required="1"
                                             placeholder="enter your designation"
                                             class="form-control input-height" />
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="control-label col-md-3">Departments
-                                        <span class="required"> * </span>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <select class="form-control input-height" name="department">
-                                            <option value="">Select...</option>
-                                            <option value="Category 1">Neurology</option>
-                                            <option value="Category 2">Orthopedics</option>
-                                            <option value="Category 3">Gynaecology</option>
-                                            <option value="Category 3">Microbiology</option>
-                                            <option value="Category 3">Radiotherapy</option>
-                                            <option value="Category 3">Pharmacy</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="control-label col-md-3">Gender
-                                        <span class="required"> * </span>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <select class="form-control input-height" name="gender">
-                                            <option value="">Select...</option>
-                                            <option value="Category 1">Male</option>
-                                            <option value="Category 2">Female</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                
+                               
                                 <div class="form-group row">
                                     <label class="control-label col-md-3">Mobile No.
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-5">
-                                        <input name="number" type="text" placeholder="mobile number"
+                                        <input formControlName="mobile" id="mobile" type="text" placeholder="mobile number"
+                                            class="form-control input-height"  /> </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3">City
+                                        <span class="required"> * </span>
+                                    </label>
+                                    <div class="col-md-5">
+                                        <input formControlName="city" id="city" type="text" placeholder="City"
                                             class="form-control input-height" /> </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="control-label col-md-3">Date Of Birth
-                                        <span class="required"> * </span>
-                                    </label>
-                                    <div class="input-append date" id="dp1">
-                                        <input class="formDatePicker" placeholder="Date Of Birth" size="44"
-                                            type="text" readonly>
-                                        <span class="add-on"><i class="fa fa-calendar"></i></span>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="control-label col-md-3">Address
+                                    <label class="control-label col-md-3">Role
                                         <span class="required"> * </span>
                                     </label>
                                     <div class="col-md-5">
-                                        <textarea name="address" placeholder="address"
-                                            class="form-control-textarea" rows="5"></textarea>
+                                        <select class="form-control input-height" formControlName="role" id="role">
+                                            <option value="">Select...</option>
+                                            <option value="client">Client</option>
+                                            <option value="employe">Employe</option>
+                                            <option value="admin">Admin</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="control-label col-md-3">Profile Picture
-                                    </label>
-                                    <div class="compose-editor">
-                                        <input type="file" class="default" multiple>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="control-label col-md-3">Education
-                                    </label>
-                                    <div class="col-md-5">
-                                        <textarea name="address" class="form-control-textarea"
-                                            placeholder="Education" rows="5"></textarea>
-                                    </div>
-                                </div>
+                             
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="offset-md-3 col-md-9">

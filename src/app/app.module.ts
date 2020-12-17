@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule , Routes } from '@angular/router';
+import { RouterModule , Routes} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,12 +12,14 @@ import { ColorComponent } from './color/color.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AllUserComponent } from './all-user/all-user.component';
-
-
+import {HttpClientModule} from "@angular/common/http"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 const routes : Routes = [
   {path: 'index', component: PrincipalComponent},
-  {path: 'adduser', component: AdduserComponent},
+  {path: 'adduser/:userId', component: AdduserComponent}, 
+  {path: 'adduser', component: AdduserComponent}, 
   {path: 'alluser', component: AllUserComponent},
+  {path: 'alluser/:id', component: AllUserComponent},
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   
 ];
@@ -37,7 +39,13 @@ const routes : Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+   
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
